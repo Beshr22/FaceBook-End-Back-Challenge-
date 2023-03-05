@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<%- include('./partials/head.ejs') %>
+
+   <body>
+      <div class="container">
+         <div class="mb-3 mt-5 d-flex justify-content-between">
+            <a href="/feed/<%= feed._id %>">
+               <button type="button" class="btn btn-success">Back</button>
+            </a>
+            <h1>Edit a Post</h1>
+         </div>
+
+         <form action="/feed/update/<%= feed._id %>" method="post">
+            <div class="mb-3">
+               <label for="name" class="form-label">Name:</label>
+               <input type="text" class="form-control" id="name" aria-describedby="emailHelp" value="<%= feed.name %>"
+                  name="name">
+               <div id="nameFeedback" class="invalid-feedback pb-2">
+                  The Name field must be no longer than 15 characters
+               </div>
+               <div id="nameFeedbackRequired" class="invalid-feedback pb-2">
+                  The Name field is required
+               </div>
+            </div>
+            <div class="mb-3">
+               <label for="message" class="form-label">Message:</label>
+               <textarea class="form-control" id="message" rows="5" name="message"><%= feed.message %></textarea>
+               <div id="messageFeedback" class="invalid-feedback pb-2">
+                  The Message field must be no longer than 40 character
+               </div>
+               <div id="messageFeedbackRequired" class="invalid-feedback pb-2">
+                  The Message field is required
+               </div>
+            </div>
+            <button type="submit" class="btn btn-outline-danger" id="submitBtn" disabled>Submit</button>
+         </form>
+
+         <%- include('./partials/footer.ejs') %>
+      </div>
+
+      <script src="/script.js"></script>
+   </body>
+
+   </html>

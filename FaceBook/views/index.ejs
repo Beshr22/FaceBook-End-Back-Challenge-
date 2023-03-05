@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<%- include('./partials/head.ejs') %>
+
+   <body>
+      <div class="container">
+         <div class="mb-3 mt-5 d-flex justify-content-between align-items-end">
+            <h2>Add a post</h2>
+            <h1>Welcome To Facebook</h1>
+         </div>
+         <form action="/post" method="post">
+            <div class="mb-3">
+               <label for="name" class="form-label">Name:</label>
+               <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name">
+               <div id="nameFeedback" class="invalid-feedback pb-2">
+                  The Name field must be no longer than 15 characters
+               </div>
+               <div id="nameFeedbackRequired" class="invalid-feedback pb-2">
+                  The Name field is required
+               </div>
+            </div>
+            <div class="mb-3">
+               <label for="message" class="form-label">Message:</label>
+               <textarea class="form-control" id="message" rows="4" name="message"></textarea>
+            </div>
+            <div id="messageFeedback" class="invalid-feedback pb-2">
+               The Message field must be no longer than 40 character
+            </div>
+            <div id="messageFeedbackRequired" class="invalid-feedback pb-2">
+               The Message field is required
+            </div>
+            <button type="submit" class="btn btn-outline-danger" id="submitBtn" disabled>Submit</button>
+         </form>
+      </div>
+
+      <div class="container">
+         <div class="row">
+            <ul class="list-group mt-5">
+               <% feeds.forEach((feed)=> {%>
+                  <li class="list-group-item d-flex justify-content-between align-items-start">
+                     <div class="ms-2 me-auto">
+                        <div class="fw-bold name">
+                           <%= feed.name %>
+                        </div>
+                        <p class="time">
+                           <%= feed.updatedAt %>
+                        </p>
+                       <p> <%= feed.message %></p>
+                     </div>
+
+                     <a href="/feed/<%= feed._id %>">
+                        <button type="button" style="width: 180px;" class="btn bg-success-subtle">See More</button>
+                     </a>
+                  </li>
+                  <% }) %>
+            </ul>
+         </div>
+
+         <%- include('./partials/footer.ejs') %>
+      </div>
+
+      <script src="/script.js"></script>
+   </body>
+
+   </html>

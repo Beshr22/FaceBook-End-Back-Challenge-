@@ -1,0 +1,31 @@
+
+h1, h2 {
+   color: #0000ff;
+}
+
+p {
+   color: #009dff;
+}
+
+h2 {
+   color: #d8d80d
+}
+
+body {
+  background-color: #ddffe8;
+}
+.name {
+  font-size: 26px;
+}
+.time {
+  color: #ff9500;
+  font-size: 16px;
+}
+a {
+  color: #ff0055;
+  font-size: 20px;
+}
+footer{
+  margin-left: 420px;
+  color: #0000ff;
+}
